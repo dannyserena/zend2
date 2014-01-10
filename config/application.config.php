@@ -13,6 +13,8 @@ return array(
         'Prestadora',
         'Contato',
         'GrandeGerador',
+       'FormConvenio',
+            
          
         ),
     'module_listener_options' => array(

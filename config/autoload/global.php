@@ -12,13 +12,14 @@
  */
 
 
-
+// Com essas configurações global conseguimos conectar com o banco
 
 return array(
     'db' => array(
-        'driver'            => 'Pdo',
-        'dsn'               => 'mysql:dbname=SG_COL_LIXO;host=localhost',
-        'driver_options'    => array(
+    'driver'            => 'Pdo',
+    'dsn'               => 'mysql:dbname=SG_COL_LIXO;host=localhost',
+        //'dsn'               => 'mysql:dbname=bd_sgo;host=localhost',
+     'driver_options'    => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
     ),

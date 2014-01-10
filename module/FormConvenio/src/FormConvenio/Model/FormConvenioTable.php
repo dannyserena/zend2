@@ -2,7 +2,7 @@
 
 // namespace de localizacao do nosso model
 
-namespace GrandeGerador\Model;
+namespace FormConvenio\Model;
 
 // import Zend\Db
 use //Zend\Db\Adapter\Adapter,
@@ -10,42 +10,52 @@ use //Zend\Db\Adapter\Adapter,
     Zend\Db\TableGateway\TableGateway;
 
 
-class GrandeGeradorTable {
+class FormConvenioTable {
 
     protected $tableGateway;
     
-    private function getGrandeGeradorTable()
+    private function getFormConvenioTable()
 {
-    return $this->getServiceLocator()->get('ModelGrandeGerador');
+    return $this->getServiceLocator()->get('ModelFormConvenio');
 }
 
- public function saveGrandeGerador(GrandeGerador $grandegerador) {
-    // $grandegerador->grande_gerador_id= 13;
-     //$grandegerador->emp_prestadora_fk = 6;
-     echo '<br>código emp_prestadora_fk ';
+ public function saveFormConvenio(FormConvenio $formconvenio) {
+    
+     echo '<br>código con_id ';
+     echo '<br>numero con_numero ';
      //echo $grandegerador->emp_prestadora_fk;
      
      
      
-     print_r( $grandegerador->emp_prestadora_fk);
-     print_r( $grandegerador->grande_gerador_razao_social);
+     print_r( $formconvenio->con_id);
+     print_r( $formconvenio->con_tipo);
+    print_r( $formconvenio->con_numero);
     
         $data = array(
-            'grande_gerador_razao_social' => $grandegerador->grande_gerador_razao_social,
-            'grande_gerador_nome_fantasia' => $grandegerador->grande_gerador_nome_fantasia,
-            'grande_gerador_cnpj' => $grandegerador->grande_gerador_cnpj,
-            'emp_prestadora_fk' => $grandegerador->emp_prestadora_fk,
-            'grande_gerador_endereco' => $grandegerador->grande_gerador_endereco,
-            'grande_gerador_cep' => $grandegerador->grande_gerador_cep,
-           // 'descricao' => strtoupper($grandegerador->descricao)
+            'con_tipo' => $formconvenio->con_tipo,
+            'con_numero' => $formconvenio->con_numero,
+            'con_valor' => $formconvenio->con_valor,
+            'con_vigencia_atual' => $formconvenio->con_vigencia_atual,
+            'con_objeto' => $formconvenio->con_objeto,
+            'con_conveniado' => $formconvenio->con_conveniado,
+            'con_data_assinatura' => $formconvenio->con_data_assinatura,
+            'con_publicacao_do' => $formconvenio->con_publicacao_do,
+            'con_data_inicio' => $formconvenio->con_data_inicio,
+            'con_data_termino' => $formconvenio->con_data_termino,
+            'con_prazo' => $formconvenio->con_prazo,
+            'con_situacao' => $formconvenio->con_situacao,
+           // 'con_saldo_convenio' => $formconvenio->con_saldo_convenio,
+            'con_observacao' => $formconvenio->con_observacao,
+           
+          
         );
         
-        echo "<br>Metodo saveGrandeGerador";
+        echo "<br>Metodo saveFormConvenio";
 
      //   $codorgao = (int) $grandegerador>codorgao;
 
        // if ($grandegerador->emp_prestadora_fk == -1) {
-            try {
+        try {
                           $this->tableGateway->insert($data);
             } catch (Exception $e) {
                          $pdoException = $e->getPrevious();
@@ -62,11 +72,11 @@ class GrandeGeradorTable {
     //    }
     }
     
-    public  function  validaCamposGrandeGerador(GrandeGerador $grandegerador)
+    public  function  validaCamposFormConvenio(FormConvenio $formconvenio)
     {
-        if($grandegerador->emp_prestadora_fk == 0)
+        if($formconvenio->con_id == 0)
         {
-            $this->flashMessenger()->addSuccessMessage("GrandeGerador de ID $id deletado com sucesso");
+            $this->flashMessenger()->addSuccessMessage("Convenio de ID $id deletado com sucesso");
             return false;
         }
         
@@ -90,45 +100,49 @@ class GrandeGeradorTable {
     }
 
     /**
-     * Recuperar todos os elementos da tabela GrandeGerador
+     * Recuperar todos os elementos da tabela FormConvenio
      *
      * @return ResultSet
      */
+    
+      
+       
     public function fetchAll() {
-         echo "<br> Entrou no metódo fetchall GrandeGeradorTable";
+         echo "<br> Entrou no metódo fetchall FormConvenioTable";
         return $this->tableGateway->select();
     }
     /**
-     * Recuperar todos os elementos da tabela Empresa Prestadora
+     * Recuperar todos os elementos da tabela ConvenioAditivo
      *
      * @return ResultSet
      */
-    public function empresaPrestadorafetchAll() {
-         echo "<br> Entrou no metódo fetchall GrandeGeradorTable";
+    public function convenioAditivofetchAll() {
+         echo "<br> Entrou no metódo fetchall FormConvenioAditivoTable";
         return $this->tableGateway->select();
     }
 
     /**
-     * Localizar linha especifico pelo id da tabela GrandeGerador
+     * Localizar linha especifico pelo id da tabela FormConvenio
      *
      * @param type $id
-     * @return \Model\GrandeGerador
+     * @return \Model\FormConvenio
      * @throws \Exception
      */
     public function find($id) {
         $id = (int) $id;
-        $rowset = $this->tableGateway->select(array('grande_gerador_id' => $id));
+        $rowset = $this->tableGateway->select(array('con_id' => $id));
         $row = $rowset->current();
         if (!$row)
-            throw new \Exception("Não foi encontrado contado de id = {$id}");
+            throw new \Exception("Não foi encontrado Convênio de id = {$id}");
 
         return $row;
     }
-    public function deleteGrandeGerador($id) {
+    //Tratamento de exclusão do convênio
+    public function deleteFormConvenio($id) {
         $id = (int) $id;
          
         try {
-                      $this->tableGateway->delete(array('grande_gerador_id' => $id));
+                      $this->tableGateway->delete(array('con_id' => $id));
         } catch (Exception $e) {
                      $pdoException = $e->getPrevious();
               var_dump($e);

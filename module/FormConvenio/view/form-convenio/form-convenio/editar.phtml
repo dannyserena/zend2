@@ -1,0 +1,151 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Editar Convenio ID <?php echo $this->con_id; ?>        
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->url('form-convenio', array('action' => 'atualizar')); ?>">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="inputNumero" class="col-lg-3 col-md-3 control-label">Numero:</label>
+                <div class="col-lg-9 col-md-9">
+                    <input type="text" name="con_numero" class="form-control" id="inputNumero" placeholder="Numero Convênio" value="<?php echo $this->escapeHtml($this->form['con_numero']); ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputTipo" class="col-lg-3 col-md-3 control-label">Tipo:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="combox" name="con_tipo" class="form-control" id="inputTipo" placeholder="Tipo" value="<?php echo $this->escapeHtml($this->form['con_tipo']); ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputValor" class="col-lg-3 col-md-3 control-label">Valor:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_valor" class="form-control" id="inputValor" placeholder="Valor" value="<?php echo $this->escapeHtml($this->form['con_valor']); ?>">
+                </div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="inputVigencia" class="col-lg-3 col-md-3 control-label">Vigencia:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_vigencia_atual" class="form-control data" id="inputVigencia data" placeholder="Vigencia" value="<?php echo $this->escapeHtml($this->form['con_vigencia_atual']); ?>">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputObjeto" class="col-lg-3 col-md-3 control-label">Objeto:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_objeto" class="form-control" id="inputObjeto" placeholder="Objeto" value="<?php echo $this->escapeHtml($this->form['con_objeto']); ?>">
+                </div>
+            </div>
+ 
+              
+            <div class="form-group">
+                <label for="inputDataAssinatura" class="col-lg-3 col-md-3 control-label">Data Assinatura:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_assinatura" class="form-control data" id="inputDataAssinatura" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_assinatura']); ?>">
+                </div>
+            </div>
+        
+        <div class="form-group">
+                <label for="inputPublicacaoDo" class="col-lg-3 col-md-3 control-label">Publicacao DO:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_inicio" class="form-control data" id="inputPublicacaoDo" placeholder="Data Publicação do Do" value="<?php echo $this->escapeHtml($this->form['con_publicacao_do']); ?>">
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+                <label for="inputDataInicio" class="col-lg-3 col-md-3 control-label">Data Inicio:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_inicio" class="form-control" id="inputDataInicio" placeholder="Data Inicio" value="<?php echo $this->escapeHtml($this->form['con_data_inicio']); ?>">
+                </div>
+            </div>
+        
+        
+        <div class="form-group">
+                <label for="inputDataTermino" class="col-lg-3 col-md-3 control-label">Data Termino:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_termino" class="form-control data" id="inputDataTermino" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_termino']); ?>">
+                </div>
+            </div>
+
+        <div class="form-group">
+                <label for="inputPrazo" class="col-lg-3 col-md-3 control-label">Prazo:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_prazo" class="form-control" id="inputPrazo" placeholder="Prazo" value="<?php echo $this->escapeHtml($this->form['con_prazo']); ?>">
+                </div>
+            </div>
+        
+        <div class="form-group">
+                <label for="inputObservacao" class="col-lg-3 col-md-3 control-label">Observação:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_observacao" class="form-control" id="inputObservacao" placeholder="Observacao" value="<?php echo $this->escapeHtml($this->form['con_observacao']); ?>">
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="panel-footer">
+            <input type="hidden" name="id" value="<?php echo $this->con_id; ?>">
+            <button type="submit" class="btn btn-primary">Atualizar Convenio</button>
+            <a href="<?php echo $this->url('form-convenio'); ?>" class="btn btn-default">Voltar</a>
+        </div>
+    </form>
+   
+    
+<script type="text/javascript">
+
+<?php $this->headScript()->captureStart(); ?>
+
+    $(document).ready(function() {
+       
+
+        $('.cpf').mask("999.999.999-99");
+        $('.cpf-sem-underline').mask("999.999.999-99", {placeholder: " "});
+        $('.nascimento').mask("99/99/9999");
+        $('.placa').mask("aaa-9999");
+        $('.cep').mask("99999-999");
+        $('.cnpj').mask("99.999.999/9999-99");
+        $('.telefone').mask("(99) 9999-9999");
+        $('.fax').mask("(99) 9999-9999");
+        $('.inscricao-estadual').mask("999.999.999.999");
+        $('.numero-contrato').mask('9999/9999-999');
+        $('.data').mask("99/99/9999");
+        $('.prazo').mask("999");
+    
+    });
+
+    function chamaURL(campo) {
+
+        alert('Teste');
+        document.location.href = "http://www.teste.com.br" + campo.options[campo.selectedIndex].value;
+    }
+
+
+
+    $(function() {
+        // variável para conter a url deletar
+        //var url_deletar = '<?php echo $this->url('form-convenio', array("action" => "deletar")); ?>' + '/';
+
+        // qualquer link que tiver a url deletar vai sofrer um evento quando for clicada
+//        $('.cpf').focusout((function(event) {
+//            // variável contendo o id referente ao botão clicado
+//         //   var contato_id = $(this).attr('href').split(url_deletar).pop();
+//            // variável contendo mensagem da janela
+//            var mensagem = "Deseja realmente apagar o contato de ID " + contato_id + "?";
+//            // variável com resposta da mensagem colocada na janela
+//            var confirmacao = confirm(mensagem);
+//
+//            // se a confirmação for false o fluxo é interrompido
+//            if (!confirmacao)
+//                // elimar o evendo do botão clicado
+//                event.preventDefault();
+//        });
+    });
+
+
+<?php $this->headScript()->captureEnd(); ?>
+
+</script>
+</div>

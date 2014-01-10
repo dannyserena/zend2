@@ -1,0 +1,78 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Editar Convênio ID <?php echo $this->con_id; ?>        
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->url('form-convenio', array('action' => 'atualizar')); ?>">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="inputNumero" class="col-lg-3 col-md-3 control-label">Numero:</label>
+                <div class="col-lg-9 col-md-9">
+                    <input type="text" name="con_numero" class="form-control " id="inputNumero" placeholder="Numero Convênio" value="<?php echo $this->escapeHtml($this->form['con_numero']); ?>">
+                </div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="inputValor" class="col-lg-3 col-md-3 control-label">Valor:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_valor" class="form-control" id="inputValor" placeholder="Valor" value="<?php echo $this->escapeHtml($this->form['con_valor']); ?>">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputObjeto" class="col-lg-3 col-md-3 control-label">Objeto:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_objeto" class="form-control" id="inputObjeto" placeholder="Objeto" value="<?php echo $this->escapeHtml($this->form['con_objeto']); ?>">
+                </div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="inputVigenciaAtual" class="col-lg-3 col-md-3 control-label">Vigencia Atual:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_vigencia_atual" class="form-control" id="inputVigenciaAtual" placeholder="Vigencia Atual" value="<?php echo $this->escapeHtml($this->form['con_vigencia_atual']); ?>">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputDataAssinatura" class="col-lg-3 col-md-3 control-label">Data Assinatura:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_assinatura" class="form-control" id="inputDataAssinatura" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_assinatura']); ?>">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="inputDataInicio" class="col-lg-3 col-md-3 control-label">Data Inicio:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_inicio" class="form-control" id="inputDataInicio" placeholder="Data Inicio" value="<?php echo $this->escapeHtml($this->form['con_data_incio']); ?>">
+                </div>
+            </div>
+        </div>
+<div class="form-group">
+                <label for="inputDataTermino" class="col-lg-3 col-md-3 control-label">Data Termino:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_data_termino" class="form-control" id="inputDataTermino" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_termino']); ?>">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="inputPrazo" class="col-lg-3 col-md-3 control-label">Prazo:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_prazo" class="form-control" id="inputPrazo" placeholder="Prazo" value="<?php echo $this->escapeHtml($this->form['con_prazo']); ?>">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="inputObservacao" class="col-lg-3 col-md-3 control-label">Prazo:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="con_observacao" class="form-control" id="inputObservacao" placeholder="Observacao" value="<?php echo $this->escapeHtml($this->form['con_observacao']); ?>">
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <input type="hidden" name="id" value="<?php echo $this->con_id; ?>">
+            <button type="submit" class="btn btn-primary">Atualizar Convenio</button>
+            <a href="<?php echo $this->url('convenio'); ?>" class="btn btn-default">Voltar</a>
+        </div>
+    </form>
+</div>
