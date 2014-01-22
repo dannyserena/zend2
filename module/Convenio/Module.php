@@ -1,14 +1,14 @@
 <?php
 
 /**
- * namespace para nosso modulo contato
+ * namespace para nosso modulo convenio
  */
 
-namespace Contato;
+namespace Convenio;
 
-// import Model\Contato
-use Contato\Model\Contato,
-    Contato\Model\ContatoTable;
+// import Model\Convenio
+use Convenio\Model\Convenio,
+    Convenio\Model\ConvenioTable;
 // import Zend\Db
 use Zend\Db\ResultSet\ResultSet,
     Zend\Db\TableGateway\TableGateway;
@@ -58,20 +58,20 @@ class Module {
     public function getServiceConfig() {
         return array(
             'factories' => array(
-                'ContatoTableGateway' => function ($sm) {
+                'ConvenioTableGateway' => function ($sm) {
             // obter adapter db atraves do service manager
             $adapter = $sm->get('Zend\Db\Adapter\Adapter');
 
-            // configurar ResultSet com nosso model Contato
+            // configurar ResultSet com nosso model Convenio
             $resultSetPrototype = new ResultSet();
-            $resultSetPrototype->setArrayObjectPrototype(new Contato());
+            $resultSetPrototype->setArrayObjectPrototype(new Convenio());
 
-            // return TableGateway configurado para nosso model Contato
-            return new TableGateway('contatos', $adapter, null, $resultSetPrototype);
+            // return TableGateway configurado para nosso model Convenio
+            return new TableGateway('tb_convenio', $adapter, null, $resultSetPrototype);
         },
-                'ModelContato' => function ($sm) {
-            // return instacia Model ContatoTable
-            return new ContatoTable($sm->get('ContatoTableGateway'));
+                'ModelConvenio' => function ($sm) {
+            // return instacia Model ConvenioTable
+            return new ConvenioTable($sm->get('ConvenioTableGateway'));
         }
             )
         );

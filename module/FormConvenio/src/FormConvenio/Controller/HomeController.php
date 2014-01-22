@@ -52,7 +52,7 @@ class HomeController extends AbstractActionController {
          * montar objeto sql e executar
          */
         $sql = new \Zend\Db\Sql\Sql($adapter);
-        $select = $sql->select()->from('convenio');
+        $select = $sql->select()->from('tb_convenio');
         $statement = $sql->prepareStatementForSqlObject($select);
         $resultsSql = $statement->execute();
         $myVarDump(

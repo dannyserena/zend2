@@ -33,46 +33,44 @@
 
                     </div>
                 </div>
-                   <?php 
-                            $element = new Zend_Form_Element_Text('con_valor');
-                            $element->setLabel('Valor: R$')->setAttrib('class', 'moneyField')->addValidator(new Zend_Validate_Float(array('locale' => 'pt_BR')));
-                            $this->addElement($element);  ?>
-                
-                <dt id="valor"><label class="optional" for="con_valor">Valor2:R$</label></dt>
-                <dd id="valor-element">
-                    <input type="text" class="moneyField" value="" id="valor" name="con_valor"></dd>
-                
+                  
                 <div class="form-group">
-                    <label for="inputNumero" class="col-lg-3 col-md-3 control-label">Numero</label>
+                    <label for="inputNumero" class="col-lg-3 col-md-3 control-label">Número</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_numero" class="form-control" id="inputNumero" placeholder="Numero do Convênio" value="<?php echo $this->escapeHtml($this->form['con_numero']); ?>">     
+                        <input type="text" name="con_numero" class="form-control cnpj" id="inputNumero" placeholder="Numero do Convênio" value="<?php echo $this->escapeHtml($this->form['con_numero']); ?>">     
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="inputValorOriginal" class="col-lg-3 col-md-3 control-label">Valor Original</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_valor" class="form-control " id="inputValorOriginal" placeholder="Valor no inicio do contrato do convenio" value="<?php echo $this->escapeHtml($this->form['con_valor']); ?>">     
+                        <input type="text" style="width: 160px"name="con_valor" class="form-control " id="inputValorOriginal" placeholder="Valor no inicio do contrato do convenio" value="<?php echo $this->escapeHtml($this->form['con_valor']); ?>">     
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="inputVigencia" class="col-lg-3 col-md-3 control-label">Vigencia</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_vigencia" class="form-control data" id="inputVigencia" placeholder="Vigência" value="<?php echo $this->escapeHtml($this->form['con_vigencia4']); ?>">
+                        <input type="text" name="con_vigencia" class="form-control data" id="inputVigencia" placeholder="Vigência" value="<?php echo $this->escapeHtml($this->form['con_vigencia']); ?>">
                     </div>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="inputObjeto" class="col-lg-3 col-md-3 control-label">Objeto</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="textarea" name="con_objeto" class="form-control" id="inputObjeto" placeholder="Descrição do Objeto" value="<?php echo $this->escapeHtml($this->form['con_objeto']); ?>">                </div>
+                        <textarea  name="con_objeto" class="form-control" id="inputObjeto" placeholder="Descrição do Objeto" value="<?php echo $this->escapeHtml($this->form['con_objeto']); ?>">   </textarea>             </div>
+                </div>
+
+              <div class="form-group">
+                    <label for="inputConveniado" class="col-lg-3 col-md-3 control-label">Conveniado</label>
+                    <div class="col-lg-9  col-md-9">
+                        <input type="text" name="ent_descricao" class="form-control" id="inputConveniado" placeholder="Conveniado" value="<?php echo $this->escapeHtml($this->form['ent_descricao']); ?>">        </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputDataAssinatura" class="col-lg-3 col-md-3 control-label">Data Assinatura</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_data_assinatura" class="form-control data" id="inputDataAssinatura" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_assinatura']); ?>">
+                        <input type="text" style="width: 160px" name="con_data_assinatura" class="form-control data" id="inputDataAssinatura" placeholder="Data Assinatura" value="<?php echo $this->escapeHtml($this->form['con_data_assinatura']); ?>">
                     </div>
                 </div>
 
@@ -86,21 +84,21 @@
                 <div class="form-group">
                     <label for="inputDataInicio" class="col-lg-3 col-md-3 control-label">Data Inicio</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_data_inicio" class="form-control data" id="inputDataInicio" placeholder="Data de Inicio" value="<?php echo $this->escapeHtml($this->form['con_data_inicio']); ?>">
+                        <input type="text" style="width: 160px" name="con_data_inicio" class="form-control data" id="inputDataInicio" placeholder="Data de Inicio" value="<?php echo $this->escapeHtml($this->form['con_data_inicio']); ?>">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="inputDataTermino" class="col-lg-3 col-md-3 control-label">Data Termino</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_data_termino" class="form-control data" id="inputDataTermino" placeholder="Data de Termino" value="<?php echo $this->escapeHtml($this->form['con_data_termino']); ?>">
+                        <input type="text" style="width: 160px"name="con_data_termino" class="form-control data" id="inputDataTermino" placeholder="Data de Termino" value="<?php echo $this->escapeHtml($this->form['con_data_termino']); ?>">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputPrazo" class="col-lg-3 col-md-3 control-label">Prazo em Dias</label>
                     <div class="col-lg-9  col-md-9">
-                        <input type="text" name="con_prazo" class="form-control prazo" id="inputPrazo" placeholder="Informe Prazo em Dias" value="<?php echo $this->escapeHtml($this->form['con_prazo']); ?>">
+                        <input type="text" style="width: 60px" name="con_prazo" class="form-control prazo" id="inputPrazo" placeholder="Informe Prazo em Dias" value="<?php echo $this->escapeHtml($this->form['con_prazo']); ?>">
                     </div>
                 </div>  
                 <div class="form-group">
@@ -160,7 +158,8 @@
     $(document).ready(function() {
         // jQuery.noConflict();
         // alert('Teste');
-
+        
+        
         $('.fone').mask('(99) 999-9999'); //telefone
         $('cnpj').mask("99.999.999/9999-99");
         $('.cpf').mask("999.999.999-99");
@@ -172,7 +171,8 @@
         $('.telefone').mask("(99) 9999-9999");
         $('.fax').mask("(99) 9999-9999");
         $('.inscricao-estadual').mask("999.999.999.999");
-        $('.numero-contrato').mask("999.999-99/9999");
+        $('numero-contrato').mask('999.999-99/9999');
+        $('.numero-contrato').mask('999.999-99/9999');
         $('.data').mask("99/99/9999");
         $('.prazo').mask("999");
         

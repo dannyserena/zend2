@@ -18,7 +18,9 @@
     <form class="form-inline pull-right" role="form">
         <div class="form-group">
             <label class="sr-only" for="localizar">Buscar...</label>
-            <input type="search" class="form-control" id="localizar" placeholder="Bucar...">
+            <input type="search" class="form-control" id="localizar" placeholder="Buscar">
+             <a class="btn btn-xs btn-info" title="Buscar" href="<?php echo $this->url('form-convenio', array("action" => "buscar", "id" => $tb_convenio->con_id,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
+                      
         </div>
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
     </form>

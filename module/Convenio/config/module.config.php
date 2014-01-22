@@ -4,8 +4,8 @@ return array(
     # definir e gerenciar controllers
     'controllers' => array(
         'invokables' => array(
-            'HomeController' => 'Contato\Controller\HomeController',
-            'ContatosController' => 'Contato\Controller\ContatosController',
+            'HomeController' => 'Convenio\Controller\HomeController',
+            'ConveniosController' => 'Convenio\Controller\ConveniosController',
         ),
     ),
 # definir e gerenciar rotas
@@ -33,17 +33,17 @@ return array(
                     ),
                 ),
             ),
-            # segment para controller contatos
-            'contatos' => array(
+            # segment para controller convenios
+            'convenios' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/contatos[/:action][/:id]',
+                    'route' => '/convenios[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'ContatosController',
+                        'controller' => 'ConveniosController',
                         'action' => 'index',
                     ),
                 ),
@@ -65,7 +65,7 @@ return array(
         'exception_template' => 'error/index',
         'template_map' => array(
             'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
-            'contato/home/index' => __DIR__ . '/../view/contato/home/index.phtml',
+            'convenio/home/index' => __DIR__ . '/../view/convenio/home/index.phtml',
             'error/404' => __DIR__ . '/../view/error/404.phtml',
             'error/index' => __DIR__ . '/../view/error/index.phtml',
         ),

@@ -69,10 +69,10 @@ class Module {
             // chamando a tabela para return TableGateway configurado para nosso model FormConvenio
             return new TableGateway('tb_convenio', $adapter, null, $resultSetPrototype);
         },
-                'ModelFormConvenio' => function ($sm) {
-            // return instacia Model FormConvenioTable
-            return new FormConvenioTable($sm->get('FormConvenioTableGateway'));
-        }
+//                'ModelFormConvenio' => function ($sm) {
+//            // return instacia Model FormConvenioTable
+//            return new FormConvenioTable($sm->get('FormConvenioTableGateway'));
+//        }
             )
         );
     }

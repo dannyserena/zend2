@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
      <div class="panel-heading">
         <div class="panel-title">
-            Detalhes Convenio ID <?php echo $this->escapeHtml($this->con_id); ?>            
+            Resultado da Busca do Convênio ID <?php echo $this->escapeHtml($this->con_id); ?>            
         </div>
     </div>
     <div class="panel-body">
@@ -14,8 +14,6 @@
             <dd><?php echo $this->escapeHtml($this->form["con_valor"]); ?></dd>
             <dt>Objeto:</dt>
             <dd><?php echo $this->escapeHtml($this->form["con_objeto"]); ?></dd>
-            <dt>Conveniado:</dt>
-            <dd><?php echo $this->escapeHtml($this->form["ent_descricao"]); ?></dd>
              <dt>Data de Assinatura:</dt>
             <dd><?php echo $this->escapeHtml($this->form["con_data_assinatura"]); ?></dd>
             <dt>Publicação no Do:</dt>
@@ -35,7 +33,7 @@
         </dl>
     </div>
     <div class="panel-footer">
-        <a href="<?php echo $this->url('form-convenio', array('action' => 'editar', 'id' => $this->con_id)); ?>" class="btn btn-warning btn-sm">Editar Convênio</a>
+        <a href="<?php echo $this->url('form-convenio', array('action' => 'buscar', 'id' => $this->con_id)); ?>" class="btn btn-warning btn-sm">Listar Convênio</a>
         <a href="<?php echo $this->url('form-convenio'); ?>" class="btn btn-default btn-sm">Voltar</a>
     </div>
 </div>

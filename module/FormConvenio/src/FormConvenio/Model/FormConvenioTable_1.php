@@ -5,8 +5,8 @@
 namespace FormConvenio\Model;
 
 // import Zend\Db
-use Zend\Db\Adapter\Adapter,
-    Zend\Db\ResultSet\ResultSet,
+use //Zend\Db\Adapter\Adapter,
+    //Zend\Db\ResultSet\ResultSet,
     Zend\Db\TableGateway\TableGateway;
 
 
@@ -20,15 +20,14 @@ class FormConvenioTable {
 }
 
  public function saveFormConvenio(FormConvenio $formconvenio) {
-    // $formconvenio->con_id= 13;
-     //$formconvenio->emp_prestadora_fk = 6;
+    
      echo '<br>código con_id ';
-     //echo $formconvenio->emp_prestadora_fk;
+     echo '<br>numero con_numero ';
+  
      
-     
-         print_r( $formconvenio->con_id);
-         print_r( $formconvenio->con_tipo);
-         print_r( $formconvenio->con_numero);
+     print_r( $formconvenio->con_id);
+     print_r( $formconvenio->con_tipo);
+     print_r( $formconvenio->con_numero);
     
         $data = array(
             'con_tipo' => $formconvenio->con_tipo,
@@ -45,14 +44,16 @@ class FormConvenioTable {
             'con_situacao' => $formconvenio->con_situacao,
            // 'con_saldo_convenio' => $formconvenio->con_saldo_convenio,
             'con_observacao' => $formconvenio->con_observacao,
+           
+          
         );
         
         echo "<br>Metodo saveFormConvenio";
 
-     //   $codorgao = (int) $formconvenio>codorgao;
+     //   $codorgao = (int) $grandegerador>codorgao;
 
-       // if ($formconvenio->emp_prestadora_fk == -1) {
-            try {
+       // if ($grandegerador->emp_prestadora_fk == -1) {
+        try {
                           $this->tableGateway->insert($data);
             } catch (Exception $e) {
                          $pdoException = $e->getPrevious();
@@ -71,9 +72,9 @@ class FormConvenioTable {
     
     public  function  validaCamposFormConvenio(FormConvenio $formconvenio)
     {
-        if($formconvenio->emp_prestadora_fk == 0)
+        if($formconvenio->con_id == 0)
         {
-            $this->flashMessenger()->addSuccessMessage("FormConvenio de ID $id deletado com sucesso");
+            $this->flashMessenger()->addSuccessMessage("Convenio de ID $id deletado com sucesso");
             return false;
         }
         
@@ -85,35 +86,39 @@ class FormConvenioTable {
      *
      * @param \Zend\Db\Adapter\Adapter $adapter
      */
-    public function __construct(Adapter $adapter) {
-        $resultSetPrototype = new ResultSet();
-        $resultSetPrototype->setArrayObjectPrototype(new FormConvenio());
+      public function __construct(Adapter $adapter) {
+       $resultSetPrototype = new ResultSet();
+        $resultSetPrototype->setArrayObjectPrototype(new FormConvenioTable());
 
         $this->tableGateway = new TableGateway('tb_convenio', $adapter, null, $resultSetPrototype);
     }
 
-//    public function __construct(TableGateway $tableGateway) {
-//        $this->tableGateway = $tableGateway;
-//    }
+   /** 2 opcao do construtor */
+  /*  public function __construct(TableGateway $tableGateway) {
+        $this->tableGateway = $tableGateway;
+    } */
 
     /**
      * Recuperar todos os elementos da tabela FormConvenio
      *
      * @return ResultSet
      */
+    
+      
+       
     public function fetchAll() {
          echo "<br> Entrou no metódo fetchall FormConvenioTable";
         return $this->tableGateway->select();
     }
     /**
-     * Recuperar todos os elementos da tabela Empresa Prestadora
+     * Recuperar todos os elementos da tabela ConvenioAditivo
      *
      * @return ResultSet
      */
-    public function empresaPrestadorafetchAll() {
-         echo "<br> Entrou no metódo fetchall FormConvenioTable";
+  /*  public function convenioAditivofetchAll() {
+         echo "<br> Entrou no metódo fetchall FormConvenioAditivoTable";
         return $this->tableGateway->select();
-    }
+    } */
 
     /**
      * Localizar linha especifico pelo id da tabela FormConvenio
@@ -127,10 +132,11 @@ class FormConvenioTable {
         $rowset = $this->tableGateway->select(array('con_id' => $id));
         $row = $rowset->current();
         if (!$row)
-            throw new \Exception("Não foi encontrado contado de id = {$id}");
+            throw new \Exception("Não foi encontrado Convênio de id = {$id}");
 
         return $row;
     }
+    //Tratamento de exclusão do convênio
     public function deleteFormConvenio($id) {
         $id = (int) $id;
          

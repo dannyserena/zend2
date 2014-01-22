@@ -1,5 +1,5 @@
 <div class="topo-table">
-    <a href="<?php echo $this->url('contatos', array('action' => 'novo')) ?>" class="btn btn-success" title="Novo"><span class="glyphicon glyphicon-plus"></span></a>
+    <a href="<?php echo $this->url('convenios', array('action' => 'novo')) ?>" class="btn btn-success" title="Novo"><span class="glyphicon glyphicon-plus"></span></a>
 
     <div class="btn-group" title="Quantidades por Página">
         <button type="button" class="btn btn-default">005</button>
@@ -40,7 +40,7 @@
         </thead>
 
         <tbody>
-            <?php foreach ($this->contatos as $emp_prestadora) : ?>
+            <?php foreach ($this->convenios as $emp_prestadora) : ?>
                 <tr>
                     <td><?php echo $this->escapeHtml($emp_prestadora->grande_gerador_id); ?></td>
                     <td><?php echo $this->escapeHtml($emp_prestadora->grande_gerador_razao_social); ?></td>
@@ -48,9 +48,9 @@
                     <td class="text-center">2</td>
                     <td><?php echo $this->escapeHtml($emp_prestadora->data_criacao); ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('contatos', array("action" => "detalhes", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
-                        <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('contatos', array("action" => "editar", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('contatos', array("action" => "deletar", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
+                        <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('convenios', array("action" => "detalhes", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
+                        <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('convenios', array("action" => "editar", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('convenios', array("action" => "deletar", "id" => $emp_prestadora->grande_gerador_id,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

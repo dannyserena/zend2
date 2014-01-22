@@ -10,7 +10,7 @@ namespace FormConvenio\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 // import Zend\View
 use Zend\View\Model\ViewModel, 
-    Prestadora\Model\PrestadoraTable,
+   // FormConvenio\Model\formConvenioTable,
     FormConvenio\Model\FormConvenioTable,
     FormConvenio\Model\FormConvenio;
 
@@ -22,7 +22,7 @@ class FormConvenioController extends AbstractActionController {
     // GET /FormConvenio
     public function indexAction() {
         // enviar para view o array com key FormConvenio e value com todos os FormConvenio
-        return new ViewModel(array('formconvenio' => $this->getFormConvenioTable()->fetchAll()));
+//        return new ViewModel(array('form-convenio' => $this->getformConvenioTable()->fetchAll()));
     }
 
     
@@ -32,9 +32,9 @@ class FormConvenioController extends AbstractActionController {
          
         $adapter = $this->getServiceLocator()->get('AdapterDb');
         
-        $prestadoraTable = new PrestadoraTable($adapter);
+        $formConvenioTable = new FormConvenioTable($adapter);
         
-        return new ViewModel(array('empresaPrestadora' => $prestadoraTable->fetchAll(), 'formconvenio' => $this->getFormConvenioTable()->fetchAll() ) );
+        return new ViewModel(array('formconvenio' => $formConvenioTable->fetchAll(), ) );
     }
 
     // POST /FormConvenio/adicionar
@@ -43,7 +43,7 @@ class FormConvenioController extends AbstractActionController {
         // return new ViewModel(array('formconvenio' => $this->getformconvenioTable()->fetchAll()));
         echo "<br>clicou no método adicionarAction";
         $request = $this->getRequest();
-        $formconvenio = new \FormConvenio\Model\FormConvenio();
+        $formconvenio = new FormConvenio();
 
         // verifica se a requisição é do tipo post
         if ($request->isPost()) {
@@ -70,7 +70,7 @@ class FormConvenioController extends AbstractActionController {
                 $formconvenio->exchangeArray($formataData);
                 
                 echo "<br>if formulario válido2";
-                $this->getFormConvenioTable()->saveFormConvenio($formconvenio);
+                $this->getformConvenioTable()->saveFormConvenio($formconvenio);
                      echo "<br>if formulario válido3";
 
                 // aqui vai a lógica para adicionar os dados à tabela no banco
@@ -112,7 +112,7 @@ class FormConvenioController extends AbstractActionController {
             // 1 - solicitar serviço para pegar o model responsável pelo find
             // 2 - solicitar form com dados desse FormConvenio encontrado
             // formulário com dados preenchidos
-            $form = (array) $this->getFormConvenioTable()->find($id);
+            $form = (array) $this->getformConvenioTable()->find($id);
         } catch (\Exception $exc) {
             
             
@@ -148,7 +148,7 @@ class FormConvenioController extends AbstractActionController {
             // 1 - solicitar serviço para pegar o model responsável pelo find
             // 2 - solicitar form com dados desse FormConvenio encontrado
             // formulário com dados preenchidos
-            $form = (array) $this->getFormConvenioTable()->find($id);
+            $form = (array) $this->getformConvenioTable()->find($id);
         } catch (\Exception $exc) {
             // adicionar mensagem
             $this->flashMessenger()->addErrorMessage($exc->getMessage());
@@ -187,7 +187,7 @@ class FormConvenioController extends AbstractActionController {
                 $this->flashMessenger()->addErrorMessage("Erro ao editar Convenio");
 
                 // redirecionar para action editar
-                return $this->redirect()->toRoute('form-gerador', array('action' => 'editar', "id" => $postData['id'],));
+                return $this->redirect()->toRoute('form-convenio', array('action' => 'editar', "id" => $postData['id'],));
             }
         }
     }
@@ -206,7 +206,7 @@ class FormConvenioController extends AbstractActionController {
             // 1 - solicitar serviço para pegar o model responsável pelo delete
             // 2 - deleta FormConvenio
             // adicionar mensagem de sucesso
-            $this->getFormConvenioTable()->deleteFormConvenio($id);
+            $this->getformConvenioTable()->deleteFormConvenio($id);
             $this->flashMessenger()->addSuccessMessage("FormConvenio de ID $id deletado com sucesso");
         }
 
@@ -215,11 +215,11 @@ class FormConvenioController extends AbstractActionController {
     }
 
     /**
-     * Metodo privado para obter instacia do Model FormConvenioTable
+     * Metodo privado para obter instacia do Model formConvenioTable
      * 
-     * @return \FormConvenio\Model\FormConvenioTable
+     * @return \FormConvenio\Model\formConvenioTable
      */
-    private function getFormConvenioTable() {
+    private function getformConvenioTable() {
         // adicionar service ModelFormConvenio a variavel de classe
         if (!$this->formConvenioTable) {
             $this->formConvenioTable = $this->getServiceLocator()->get('ModelFormConvenio');

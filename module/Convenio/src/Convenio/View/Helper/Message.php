@@ -1,6 +1,6 @@
 <?php
  
-namespace Contato\View\Helper;
+namespace Convenio\View\Helper;
  
 use Zend\View\Helper\AbstractHelper;
 use Zend\Mvc\Controller\Plugin\FlashMessenger as FlashMessenger;

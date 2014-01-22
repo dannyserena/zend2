@@ -1,17 +1,17 @@
 <?php
 
-namespace Contato\Model;
+namespace Convenio\Model;
 
-// import Model\Contato
-use Contato\Model\Contato,
-    Contato\Model\ContatoTable;
+// import Model\Convenio
+use Convenio\Model\Convenio,
+    Convenio\Model\ConvenioTable;
  
 // import Zend\Db
 use Zend\Db\ResultSet\ResultSet,
     Zend\Db\TableGateway\TableGateway;
 
 
-class Contato {
+class Convenio {
 
     public $id;
     public $nome;

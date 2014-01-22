@@ -17,20 +17,21 @@
 return array(
     'db' => array(
     'driver'            => 'Pdo',
-    'dsn'               => 'mysql:dbname=SG_COL_LIXO;host=localhost',
-        //'dsn'               => 'mysql:dbname=bd_sgo;host=localhost',
+   // 'dsn'               => 'mysql:dbname=SG_COL_LIXO;host=localhost',
+        'dsn'               => 'mysql:dbname=bd_sgo;host=localhost',
      'driver_options'    => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
     ),
+    // recebendo o oservice Manager
     'service_manager' => array(
         'factories' => array(
             'AdapterDb'   => 'Zend\Db\Adapter\AdapterServiceFactory', // new \Zend\Db\Adapter\AdapterServiceFactory
         ),     
     ),
-    'service_manager_2' => array(
+  /*  'service_manager_2' => array(
         'factories' => array(
             'AdapterDb2'   => 'Zend\Db\Adapter\AdapterServiceFactory', // new \Zend\Db\Adapter\AdapterServiceFactory
         ),     
-    ),
+    ), */
 );

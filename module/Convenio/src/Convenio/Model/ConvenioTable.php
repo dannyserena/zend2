@@ -2,7 +2,7 @@
 
 // namespace de localizacao do nosso model
 
-namespace Contato\Model;
+namespace Convenio\Model;
 
 // import Zend\Db
 use //Zend\Db\Adapter\Adapter,
@@ -10,16 +10,16 @@ use //Zend\Db\Adapter\Adapter,
     Zend\Db\TableGateway\TableGateway;
 
 
-class ContatoTable {
+class ConvenioTable {
 
     protected $tableGateway;
     
-    private function getContatoTable()
+    private function getConvenioTable()
 {
-    return $this->getServiceLocator()->get('ModelContato');
+    return $this->getServiceLocator()->get('ModelConvenio');
 }
 
- public function saveContato(Contato $contato) {
+ public function saveConvenio(Convenio $contato) {
      $contato->id = 11;
         $data = array(
             'nome' => $contato->nome,
@@ -28,7 +28,7 @@ class ContatoTable {
            // 'descricao' => strtoupper($contato->descricao)
         );
         
-        echo "<br>Metodo saveContato";
+        echo "<br>Metodo saveConvenio";
 
      //   $codorgao = (int) $contato->codorgao;
 
@@ -57,7 +57,7 @@ class ContatoTable {
      */
 //    public function __construct(Adapter $adapter) {
 //        $resultSetPrototype = new ResultSet();
-//        $resultSetPrototype->setArrayObjectPrototype(new Contato());
+//        $resultSetPrototype->setArrayObjectPrototype(new Convenio());
 //
 //        $this->tableGateway = new TableGateway('contatos', $adapter, null, $resultSetPrototype);
 //    }
@@ -80,7 +80,7 @@ class ContatoTable {
      * Localizar linha especifico pelo id da tabela contatos
      *
      * @param type $id
-     * @return \Model\Contato
+     * @return \Model\Convenio
      * @throws \Exception
      */
     public function find($id) {

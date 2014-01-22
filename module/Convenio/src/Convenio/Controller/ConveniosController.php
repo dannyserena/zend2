@@ -4,33 +4,33 @@
  * namespace de localizacao do nosso controller
  */
 
-namespace Contato\Controller;
+namespace Convenio\Controller;
 
 // import Zend\Mvc
 use Zend\Mvc\Controller\AbstractActionController;
 // import Zend\View
 use Zend\View\Model\ViewModel;
 
-class ContatosController extends AbstractActionController {
+class ConveniosController extends AbstractActionController {
 
-    protected $contatoTable;
+    protected $convenioTable;
 
-    // GET /contatos
+    // GET /convenios
     public function indexAction() {
-        // enviar para view o array com key contatos e value com todos os contatos
-        return new ViewModel(array('contatos' => $this->getContatoTable()->fetchAll()));
+        // enviar para view o array com key convenios e value com todos os convenios
+        return new ViewModel(array('convenios' => $this->getConvenioTable()->fetchAll()));
     }
 
-    // GET /contatos/novo
+    // GET /convenios/novo
     public function novoAction() {
         
     }
 
-    // POST /contatos/adicionar
+    // POST /convenios/adicionar
     public function adicionarAction() {
         // obtém a requisição
         $request = $this->getRequest();
-        $contato = new \Contato\Model\Contato();
+        $convenio = new \Convenio\Model\Convenio();
 
         // verifica se a requisição é do tipo post
         if ($request->isPost()) {
@@ -43,94 +43,94 @@ class ContatosController extends AbstractActionController {
             // verifica se o formulário segue a validação proposta
             if ($formularioValido) {
                 echo "<br>if formulario válido";
-                $contato->exchangeArray($postData);
+                $convenio->exchangeArray($postData);
                 echo "<br>if formulario válido2";
-                $this->getContatoTable()->saveContato($contato);
+                $this->getConvenioTable()->saveConvenio($convenio);
                      echo "<br>if formulario válido3";
 
                 // aqui vai a lógica para adicionar os dados à tabela no banco
                 // 1 - solicitar serviço para pegar o model responsável pela adição
                 // 2 - inserir dados no banco pelo model
                 // adicionar mensagem de sucesso
-                $this->flashMessenger()->addSuccessMessage("Contato criado com sucesso");
+                $this->flashMessenger()->addSuccessMessage("Convenio criado com sucesso");
 
-                // redirecionar para action index no controller contatos
-                return $this->redirect()->toRoute('contatos');
+                // redirecionar para action index no controller convenios
+                return $this->redirect()->toRoute('convenios');
             } else {
                 // adicionar mensagem de erro
-                $this->flashMessenger()->addErrorMessage("Erro ao criar contato");
+                $this->flashMessenger()->addErrorMessage("Erro ao criar convenio");
 
-                // redirecionar para action novo no controllers contatos
-                return $this->redirect()->toRoute('contatos', array('action' => 'novo'));
+                // redirecionar para action novo no controllers convenios
+                return $this->redirect()->toRoute('convenios', array('action' => 'novo'));
             }
         }
     }
 
-    // GET /contatos/detalhes/id
+    // GET /convenios/detalhes/id
     public function detalhesAction() {
         // filtra id passsado pela url
         $id = (int) $this->params()->fromRoute('id', 0);
 
-        // se id = 0 ou não informado redirecione para contatos
+        // se id = 0 ou não informado redirecione para convenios
         if (!$id) {
             // adicionar mensagem
-            $this->flashMessenger()->addMessage("Contato não encotrado");
+            $this->flashMessenger()->addMessage("Convenio não encotrado");
 
             // redirecionar para action index
-            return $this->redirect()->toRoute('contatos');
+            return $this->redirect()->toRoute('convenios');
         }
 
         try {
-            // aqui vai a lógica para pegar os dados referente ao contato
+            // aqui vai a lógica para pegar os dados referente ao convenio
             // 1 - solicitar serviço para pegar o model responsável pelo find
-            // 2 - solicitar form com dados desse contato encontrado
+            // 2 - solicitar form com dados desse convenio encontrado
             // formulário com dados preenchidos
-            $form = (array) $this->getContatoTable()->find($id);
+            $form = (array) $this->getConvenioTable()->find($id);
         } catch (\Exception $exc) {
             // adicionar mensagem
             $this->flashMessenger()->addErrorMessage($exc->getMessage());
 
             // redirecionar para action index
-            return $this->redirect()->toRoute('contatos');
+            return $this->redirect()->toRoute('convenios');
         }
 
         // dados eviados para detalhes.phtml
         return array('id' => $id, 'form' => $form);
     }
 
-    // GET /contatos/editar/id
+    // GET /convenios/editar/id
     public function editarAction() {
         // filtra id passsado pela url
         $id = (int) $this->params()->fromRoute('id', 0);
 
-        // se id = 0 ou não informado redirecione para contatos
+        // se id = 0 ou não informado redirecione para convenios
         if (!$id) {
             // adicionar mensagem de erro
-            $this->flashMessenger()->addMessage("Contato não encotrado");
+            $this->flashMessenger()->addMessage("Convenio não encotrado");
 
             // redirecionar para action index
-            return $this->redirect()->toRoute('contatos');
+            return $this->redirect()->toRoute('convenios');
         }
 
         try {
-            // aqui vai a lógica para pegar os dados referente ao contato
+            // aqui vai a lógica para pegar os dados referente ao convenio
             // 1 - solicitar serviço para pegar o model responsável pelo find
-            // 2 - solicitar form com dados desse contato encontrado
+            // 2 - solicitar form com dados desse convenio encontrado
             // formulário com dados preenchidos
-            $form = (array) $this->getContatoTable()->find($id);
+            $form = (array) $this->getConvenioTable()->find($id);
         } catch (\Exception $exc) {
             // adicionar mensagem
             $this->flashMessenger()->addErrorMessage($exc->getMessage());
 
             // redirecionar para action index
-            return $this->redirect()->toRoute('contatos');
+            return $this->redirect()->toRoute('convenios');
         }
 
         // dados eviados para editar.phtml
         return array('id' => $id, 'form' => $form);
     }
 
-    // PUT /contatos/editar/id
+    // PUT /convenios/editar/id
     public function atualizarAction() {
         // obtém a requisição
         $request = $this->getRequest();
@@ -147,53 +147,53 @@ class ContatosController extends AbstractActionController {
                 // 1 - solicitar serviço para pegar o model responsável pela atualização
                 // 2 - editar dados no banco pelo model
                 // adicionar mensagem de sucesso
-                $this->flashMessenger()->addSuccessMessage("Contato editado com sucesso");
+                $this->flashMessenger()->addSuccessMessage("Convenio editado com sucesso");
 
                 // redirecionar para action detalhes
-                return $this->redirect()->toRoute('contatos', array("action" => "detalhes", "id" => $postData['id'],));
+                return $this->redirect()->toRoute('convenios', array("action" => "detalhes", "id" => $postData['id'],));
             } else {
                 // adicionar mensagem de erro
-                $this->flashMessenger()->addErrorMessage("Erro ao editar contato");
+                $this->flashMessenger()->addErrorMessage("Erro ao editar convenio");
 
                 // redirecionar para action editar
-                return $this->redirect()->toRoute('contatos', array('action' => 'editar', "id" => $postData['id'],));
+                return $this->redirect()->toRoute('convenios', array('action' => 'editar', "id" => $postData['id'],));
             }
         }
     }
 
-    // DELETE /contatos/deletar/id
+    // DELETE /convenios/deletar/id
     public function deletarAction() {
         // filtra id passsado pela url
         $id = (int) $this->params()->fromRoute('id', 0);
 
-        // se id = 0 ou não informado redirecione para contatos
+        // se id = 0 ou não informado redirecione para convenios
         if (!$id) {
             // adicionar mensagem de erro
-            $this->flashMessenger()->addMessage("Contato não encotrado");
+            $this->flashMessenger()->addMessage("Convenio não encotrado");
         } else {
-            // aqui vai a lógica para deletar o contato no banco
+            // aqui vai a lógica para deletar o convenio no banco
             // 1 - solicitar serviço para pegar o model responsável pelo delete
-            // 2 - deleta contato
+            // 2 - deleta convenio
             // adicionar mensagem de sucesso
-            $this->flashMessenger()->addSuccessMessage("Contato de ID $id deletado com sucesso");
+            $this->flashMessenger()->addSuccessMessage("Convenio de ID $id deletado com sucesso");
         }
 
         // redirecionar para action index
-        return $this->redirect()->toRoute('contatos');
+        return $this->redirect()->toRoute('convenios');
     }
 
     /**
-     * Metodo privado para obter instacia do Model ContatoTable
+     * Metodo privado para obter instacia do Model ConvenioTable
      * 
-     * @return \Contato\Model\ContatoTable
+     * @return \Convenio\Model\ConvenioTable
      */
-    private function getContatoTable() {
-        // adicionar service ModelContato a variavel de classe
-        if (!$this->contatoTable)
-            $this->contatoTable = $this->getServiceLocator()->get('ModelContato');
+    private function getConvenioTable() {
+        // adicionar service ModelConvenio a variavel de classe
+        if (!$this->convenioTable)
+            $this->convenioTable = $this->getServiceLocator()->get('ModelConvenio');
 
-        // return vairavel de classe com service ModelContato
-        return $this->contatoTable;
+        // return vairavel de classe com service ModelConvenio
+        return $this->convenioTable;
     }
 
 }

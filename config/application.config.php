@@ -11,9 +11,9 @@ return array(
         'ZendDeveloperTools',
         'BjyProfiler',
         'Prestadora',
-        'Contato',
+        'Convenio',
         'GrandeGerador',
-       'FormConvenio',
+        'FormConvenio',
             
          
         ),
