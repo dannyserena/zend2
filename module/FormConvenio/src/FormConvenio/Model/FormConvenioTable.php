@@ -45,6 +45,7 @@ class FormConvenioTable {
             'con_situacao' => $formconvenio->con_situacao,
            // 'con_saldo_convenio' => $formconvenio->con_saldo_convenio,
             'con_observacao' => $formconvenio->con_observacao,
+            'con_banco' => $formconvenio->con_banco,
         );
         
         echo "<br>Metodo saveFormConvenio";
@@ -71,7 +72,7 @@ class FormConvenioTable {
     
     public  function  validaCamposFormConvenio(FormConvenio $formconvenio)
     {
-        if($formconvenio->emp_prestadora_fk == 0)
+        if($formconvenio->con_id == 0)
         {
             $this->flashMessenger()->addSuccessMessage("FormConvenio de ID $id deletado com sucesso");
             return false;
@@ -110,10 +111,10 @@ class FormConvenioTable {
      *
      * @return ResultSet
      */
-    public function empresaPrestadorafetchAll() {
+ /*   public function empresaPrestadorafetchAll() {
          echo "<br> Entrou no metódo fetchall FormConvenioTable";
         return $this->tableGateway->select();
-    }
+    } */
 
     /**
      * Localizar linha especifico pelo id da tabela FormConvenio

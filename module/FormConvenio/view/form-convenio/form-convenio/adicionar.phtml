@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div class="panel-title">
-            Editar Convênio ID <?php echo $this->con_id; ?>        
+            Adicionar Convênio ID <?php echo $this->con_id; ?>        
         </div>
     </div>
     <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->url('form-convenio', array('action' => 'atualizar')); ?>">
@@ -24,6 +24,13 @@
                 <label for="inputObjeto" class="col-lg-3 col-md-3 control-label">Objeto:</label>
                 <div class="col-lg-9  col-md-9">
                     <input type="text" name="con_objeto" class="form-control" id="inputObjeto" placeholder="Objeto" value="<?php echo $this->escapeHtml($this->form['con_objeto']); ?>">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputConveniado" class="col-lg-3 col-md-3 control-label">Conveniado:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="ent_descricao" class="form-control" id="inputConveniado" placeholder="Conveniado" value="<?php echo $this->escapeHtml($this->form['ent_descricao']); ?>">
                 </div>
             </div>
  
@@ -63,7 +70,7 @@
             </div>
         </div>
         <div class="form-group">
-                <label for="inputObservacao" class="col-lg-3 col-md-3 control-label">Prazo:</label>
+                <label for="inputObservacao" class="col-lg-3 col-md-3 control-label">Observação:</label>
                 <div class="col-lg-9  col-md-9">
                     <input type="text" name="con_observacao" class="form-control" id="inputObservacao" placeholder="Observacao" value="<?php echo $this->escapeHtml($this->form['con_observacao']); ?>">
                 </div>

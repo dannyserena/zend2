@@ -36,13 +36,16 @@ div.container a.brand {
     padding: 8px 20px 12px 40px;
 }
 
+//Definindo tamanho do layout das combox e labels dos forms de cadastro
 
 #inputObjeto {
-    width: 160px;
+    width: 700px;
+    height: 100px;
     
 }
 
-#inputDataAssinatura{
+#inputObservacao{
+    width: 700px;
+    height: 100px;
     
-   height: 60px
 }
