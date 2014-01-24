@@ -10,9 +10,11 @@ namespace FormConvenio\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 // import Zend\View
 use Zend\View\Model\ViewModel, 
-   // FormConvenio\Model\formConvenioTable,
     FormConvenio\Model\FormConvenioTable,
     FormConvenio\Model\FormConvenio;
+
+// import Model\ModelFormConvenio com alias
+//use FormConvenio\Model\FormConvenioTable as ModelFormConvenio;
 
 class FormConvenioController extends AbstractActionController {
 
